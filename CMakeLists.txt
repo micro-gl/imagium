@@ -11,8 +11,8 @@ message(${PROJECT_SOURCE_DIR})
 set(SOURCES_LIB
         src/types.cpp
         src/bits.cpp
-        libs/lodepng/lodepng.cpp
-        libs/stb_image/stb_image.cpp
+        src/stb_image.cpp
+        src/lodepng.cpp
         )
 add_library(imagium ${SOURCES_LIB})
 target_include_directories(imagium
@@ -21,7 +21,6 @@ target_include_directories(imagium
         "${PROJECT_SOURCE_DIR}/src")
 target_include_directories(imagium
         PUBLIC
-        "${PROJECT_SOURCE_DIR}/libs"
         "${PROJECT_SOURCE_DIR}/include")
 
 # imagium-cli target
@@ -44,4 +43,4 @@ add_custom_command(TARGET imagium-cli POST_BUILD COMMAND
 install(TARGETS imagium-cli  RUNTIME DESTINATION "bin")
 install(TARGETS imagium  LIBRARY DESTINATION "lib"
                          ARCHIVE DESTINATION "lib")
-install(DIRECTORY include/imagium DESTINATION include)
+install(DIRECTORY include/imagium DESTINATION include/imagium)

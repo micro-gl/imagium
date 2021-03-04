@@ -1,8 +1,8 @@
 #pragma once
 
 #include <exception>
-#include <stb_image/stb_image.h>
-#include <lodepng/lodepng.h>
+#include "stb_image.h"
+#include "lodepng.h"
 #include "converter.h"
 #include "typed_packed_array.h"
 #include "bits.h"

@@ -13,4 +13,4 @@
 //
 //#define STBI_NO_PNG
 
-#include "stb_image.h"
+#include <imagium/stb_image.h>

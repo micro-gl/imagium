@@ -5,7 +5,7 @@
 #include "bits.h"
 #include "color_t.h"
 #include "utils.h"
-#include <lodepng/lodepng.h>
+#include "lodepng.h"
 #include <exception>
 
 namespace imagium {
