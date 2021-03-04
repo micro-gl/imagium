@@ -1,13 +1,13 @@
 #pragma once
 
 #include <exception>
-#include "stb_image/stb_image.h"
+#include <stb_image/stb_image.h>
+#include <lodepng/lodepng.h>
 #include "converter.h"
 #include "typed_packed_array.h"
 #include "bits.h"
 #include "color_t.h"
 #include "utils.h"
-#include <lodepng/lodepng.h>
 
 namespace imagium {
 

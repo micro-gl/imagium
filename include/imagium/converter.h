@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include "types.h"
+#include <imagium/types.h>
 #include <imagium/Config.h>
 
 namespace imagium {

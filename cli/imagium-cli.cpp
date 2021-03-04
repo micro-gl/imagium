@@ -8,7 +8,8 @@ using namespace imagium;
 
 #define DEBUG 0
 
-const char* info =R"foo(usage:
+const char* info =R"foo(
+usage:
   imagium <image file> [options]
 
 description:

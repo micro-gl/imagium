@@ -1,6 +1,6 @@
 #pragma once
 
-#include "types.h"
+#include <imagium/types.h>
 
 namespace imagium {
 

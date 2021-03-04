@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Config.h"
-#include "../src/converter.h"
-#include "../src/regular_converter.h"
-#include "../src/png_palette_converter.h"
+#include <imagium/converter.h>
+#include <imagium/regular_converter.h>
+#include <imagium/png_palette_converter.h>
 
 namespace imagium {
     class Imagium {
