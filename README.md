@@ -1,11 +1,11 @@
 # Imagium lib & Imagium-CLI
-project contains two components  
-- `imagium` is a c++ library, that processes images andre-shapes and packs/unpacks  
+Project contains two components  
+- `imagium` is a C++ library, that processes images and re-shapes and packs/unpacks  
 new pixels inside power of 2 data and returns `.c header files` strings out of them.  
 - `imagium-cli` is a command line interface, that uses `imagium` to write `.c header files`    
 export formats so you can embed/use them in your application.  
 
-install **imagiumlib** and **cli** with ***CMake***
+## Installing  **`imagiumlib`** and **cli**
 ```bash
 $ cd path/to/imagium
 $ mkdir cmake-build-release
@@ -13,48 +13,36 @@ $ cd cmake-build-release
 $ cmake -DCMAKE_BUILD_TYPE=Release ..
 $ cmake --build . --target install
 ```
-
-suppose it is installed at `<install-folder>`.
-
-for using the `libimagium`, use:
-```bash
-add these to your Include directories
--I<install-folder>/include/imagium
-
-add this path to your libs directories search
--L<install-folder>/lib/
-
-add the lib to your link libs
--limagium
-```
-or you can skip `install` and use the lib from your cmake with
-```cmake
-# CMakeFiles.txt
-
-# this will add the fontium lib target
-add_subdirectory(path/to/imagium)
-
-# then link
-target_link_libraries(your-app imagium)
-```
-
-the `cli` target is installed at `<install-folder>/bin/imagium`, if it is global, then you can   
-use it write away in your shell/terminal
+The `cli` target is installed at `<install-folder>/bin/imagium`, if it is global, then you can   
+use it right away in your shell/terminal
 ```bash
 $ imagium -h
 ```
 
-### supported image formats
+## Consuming `imagiumlib` in your project
+Following options are available:
+1. Copy the project to a sub folder of your project. inside your **`CMakeLists.txt`** add
+```cmake
+add_subdirectory(/path/to/micro-alloc)
+target_link_libraries(your_app imagium)
+```
+2. If you installed **`imagium`** (see above) at your system, you can instead
+```cmake
+find_package(imagium CONFIG REQUIRED)
+target_link_libraries(your_app imagium::imagium)
+```
+
+## supported image formats
 - `PNG`, `JPEG`, `BMP`, `TGA`, `GIF`, `PSD`, `PIC`, `PNM` are supported.
-- for palette export only `PNG` is supported with embedded palette, that you  
+- For palette export only `PNG` is supported with embedded palette, that you  
 have created in an image editing software.
 
-### notes
-- channels, that are reshaped into 0 bits are discarded in output to save storage.
-- palette, is only supported for `png` format
+## notes
+- Channels, that are reshaped into 0 bits are discarded in output to save storage.
+- Palette, is only supported for `png` format
 
 ## imagium lib
-you can use the lib as follows
+You can use the lib as follows
 ```c++
 imagium::Imagium lib{};
 Config config = Config::getDefault();
@@ -75,7 +63,7 @@ res.size_bytes; // represent what size in bytes the data will occupy in memory o
 
 ## imagium cli guide
 
-build `imagium-cli` target with `cmake` or install (look above for instructions)
+Build `imagium-cli` target with `cmake` or install (look above for instructions)
 ```bash
 $ cd imagium
 $ mkdir cmake_build
