@@ -49,9 +49,9 @@ Config config = Config::getDefault();
 using bytearray = std::vector<unsigned char>;
 
 // change the config
-config.r=8; config.g=2; config.b=1; config.a=0;
+config.r=8; config.g=2; config.b=1; config.a=0; config.image_format="png";
 
-// here you can load font data into the bytearray from disk or memory
+// here you can load raw image data into the bytearray from disk or memory
 bytearray image{};
 
 // compute the c-array string
