@@ -13,7 +13,6 @@ message("===============\n${PROJECT_NAME} v${PROJECT_VERSION} project \n========
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 # imagium lib target
 set(SOURCES_LIB
@@ -24,8 +23,7 @@ set(SOURCES_LIB
         )
 add_library(${PROJECT_NAME} STATIC ${SOURCES_LIB})
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
-target_include_directories(${PROJECT_NAME}
-        PRIVATE
+target_include_directories(${PROJECT_NAME} PRIVATE
         "${PROJECT_SOURCE_DIR}/include"
         "${PROJECT_SOURCE_DIR}/src")
 target_include_directories(
@@ -72,7 +70,7 @@ target_include_directories(imagium-cli
         PRIVATE
         ${PROJECT_SOURCE_DIR}/cli
         ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(imagium-cli imagium)
+target_link_libraries(imagium-cli ${PROJECT_NAME})
 set_target_properties(imagium-cli PROPERTIES OUTPUT_NAME "imagium")
 add_custom_command(TARGET imagium-cli POST_BUILD COMMAND
         ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/assets

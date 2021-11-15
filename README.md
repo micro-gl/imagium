@@ -23,7 +23,7 @@ $ imagium -h
 Following options are available:
 1. Copy the project to a sub folder of your project. inside your **`CMakeLists.txt`** add
 ```cmake
-add_subdirectory(/path/to/micro-alloc)
+add_subdirectory(/path/to/imagium)
 target_link_libraries(your_app imagium)
 ```
 2. If you installed **`imagium`** (see above) at your system, you can instead
